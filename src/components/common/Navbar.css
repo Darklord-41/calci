@@ -1,0 +1,159 @@
+.navbar {
+  position: sticky;
+  top: 1.6rem;
+  margin: 0.8rem auto;
+  border-radius: 12px;
+  z-index: 100;
+  transition: all 0.3s ease;
+  max-width: none; 
+  width: calc(100% - 60px); 
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.5rem; /* Reduced to push content to edges */
+  width: 100%;
+}
+
+/* Logo Styles */
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.nav-logo-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.logo-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Changed from baseline for perfect horizontal symmetry */
+  gap: 0.5rem;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.logo-subtitle {
+  font-size: 0.9rem;
+  color: var(--secondary);
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.logo-accent {
+  color: var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.nav-btn.github-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-btn.github-btn:hover {
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-btn.github-btn .btn-label {
+  font-family: var(--font-main);
+  font-weight: 600;
+}
+
+.icon-btn.snow-btn {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  font-size: 1rem;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px; /* Pill shape */
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.snow-label {
+  margin-left: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  font-family: var(--font-main);
+}
+
+.icon-btn.snow-btn:hover {
+  background: var(--surface);
+  border-color: var(--glass-border);
+  opacity: 1;
+}
+
+.icon-btn.snow-btn.active {
+  color: #60a5fa; 
+  background: rgba(96, 165, 250, 0.1);
+  border-color: rgba(96, 165, 250, 0.3);
+  opacity: 1;
+  text-shadow: 0 0 10px #60a5fa;
+}
+
+/* Only spin the icon */
+.icon-btn.snow-btn.active .snow-icon-spin {
+  animation: spin 3s linear infinite;
+}
+
+/* Hide snow button in light theme */
+[data-theme="light"] .snow-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .logo-subtitle {
+    display: none;
+  }
+  
+  .nav-btn.github-btn .btn-label {
+    display: none;
+  }
+  
+  .nav-btn.github-btn {
+    padding: 0.5rem;
+  }
+  
+  .navbar {
+    width: calc(100% - 20px);
+    top: 0.8rem;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

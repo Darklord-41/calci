@@ -1,0 +1,35 @@
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem; /* Wider padding for pill */
+  border-radius: 50px; /* Pill shape */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  border: 1px solid var(--glass-border);
+}
+
+.theme-text {
+  font-weight: 600;
+  text-transform: capitalize;
+  min-width: 35px; /* Prevent jitter on change */
+  text-align: right;
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+}
+
+.theme-icon {
+  font-size: 1rem;
+}
+
+.theme-icon.sun {
+  color: #fbbf24;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--surface);
+  border-color: var(--primary);
+}

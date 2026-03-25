@@ -1,0 +1,136 @@
+/* Bounded, overflow-safe verification layout */
+
+.verify-shell {
+  height: min(85vh, 860px);
+  padding: 0.5rem; /* Tighter padding */
+  border-radius: 24px;
+  overflow: hidden; 
+}
+
+.verify-banner {
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  background: rgba(59, 130, 246, 0.08);
+  border-radius: 12px;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.verify-grid {
+  height: 100%;
+  display: grid;
+  /* Balance space: keep screenshot large, give table more width */
+  grid-template-columns: minmax(380px, 1.3fr) 1.7fr;
+  gap: 0.5rem; /* Tighter gap */
+  min-height: 0; /* critical for nested overflow */
+}
+
+.verify-left,
+.verify-right {
+  min-height: 0;
+}
+
+.verify-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.verify-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  padding: 0 0 0.5rem 0;
+}
+
+.verify-panel-title {
+  margin: 0 0 0 0.5rem;
+}
+
+.verify-image-frame {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #0e1217;
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+}
+
+.verify-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.zoom-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  display: flex;
+  gap: 6px;
+}
+
+.icon-btn.zoom {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.icon-btn.zoom:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.verify-right {
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* critical for nested overflow */
+}
+
+
+
+.verify-right-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding-right: 0.25rem; /* prevents content from touching the edge */
+}
+
+/* Hide scrollbars but keep scrolling */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge legacy */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+@media (max-width: 900px) {
+  .verify-shell {
+    height: auto;
+    overflow: visible;
+  }
+  .verify-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 420px auto;
+  }
+  .verify-right-scroll {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+}

@@ -1,0 +1,407 @@
+/* Global Section Styles */
+.section-title {
+  font-size: 2.1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .section-title {
+  background: linear-gradient(to right, #1e293b, #475569);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Aggressively reduced from 1.5rem */
+  padding-bottom: 1rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 760px;
+  margin: -1em auto 1rem auto; /* Reduced margins */
+  opacity: 0.7;
+  line-height: 1.7;
+}
+
+/* ... (skipping unchanged parts) ... */
+
+/* FAQ */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
+  gap: 0rem;
+}
+
+@media (max-width: 900px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  min-height: 50vh; /* Reduced from 70vh */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  line-height: 1.1;
+  margin-bottom: 0.75rem; /* Reduced */
+  letter-spacing: -2px;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  opacity: 0.7;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 2rem; /* Reduced */
+}
+
+.cta-group {
+  display: none; /* Hide old buttons */
+}
+
+/* Restored Card Styles */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 2rem;
+}
+
+.option-card {
+  padding: 2rem;
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid var(--glass-border);
+}
+
+.option-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.icon-wrapper {
+  font-size: 2.4rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.active-card .icon-wrapper {
+  color: var(--accent);
+}
+
+.btn-text {
+  margin-top: auto;
+  font-weight: 600;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Features Section - xAI Style */
+.features-section {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0,0,0,0.2);
+}
+
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Add side boundaries */
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+}
+
+.xai-card {
+  padding: 2.4rem 1.8rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+  position: relative;
+  transition: background 0.3s;
+}
+
+/* Corner Dots - Left Side of every card */
+.xai-card::before, .xai-card::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+  left: -2.5px;
+}
+
+.xai-card::before { top: -2.5px; }
+.xai-card::after { bottom: -2.5px; }
+
+/* Corner Dots - Right Side of Container (End of grid) */
+.features-container::before, .features-container::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+  right: -2.5px;
+}
+
+.features-container::before { top: -2.5px; }
+.features-container::after { bottom: -2.5px; }
+
+/* Add dots to the right side of the last card to complete the look */
+.xai-card:last-child {
+  border-right: none;
+}
+
+/* Clean up complete */
+
+.xai-card:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.card-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.6;
+  max-width: 90%;
+}
+
+.card-visual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.2;
+  transition: opacity 0.3s;
+}
+
+.xai-card:hover .card-visual {
+  opacity: 0.6;
+}
+
+.visual-icon {
+  font-size: 6rem;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
+}
+
+.card-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.xai-btn {
+  border: 1px solid var(--glass-border);
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-color);
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.3s;
+  font-family: monospace;
+}
+
+.xai-btn:not(.static):hover {
+  background: var(--text-color);
+  color: var(--bg-color);
+  border-color: var(--text-color);
+}
+
+.xai-btn.static {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .features-container {
+    grid-template-columns: 1fr;
+    border-left: none;
+    border-right: none;
+  }
+  .xai-card {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    min-height: auto;
+    padding: 3rem 1.5rem;
+  }
+  .xai-card:last-child {
+    border-bottom: none;
+  }
+
+  .xai-card::before, .xai-card::after,
+  .features-container::before, .features-container::after {
+    display: none;
+  }
+
+  .visual-icon {
+    font-size: 5rem;
+    margin: 2rem 0;
+  }
+}
+
+/* How It Works Section */
+.steps-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.step-item {
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+  padding-top: 2rem;
+}
+
+.step-number {
+  font-size: 3rem;
+  font-weight: 800;
+  opacity: 0.1;
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  z-index: 0;
+}
+
+.step-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.step-item p {
+  opacity: 0.7;
+  position: relative;
+  z-index: 1;
+}
+
+/* Explain / Long-page card section */
+.explain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .explain-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-container .container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.explain-card {
+  padding: 2.25rem;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.explain-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--glass-border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.explain-icon {
+  font-size: 2.25rem;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
+.explain-card p {
+  opacity: 0.75;
+  line-height: 1.7;
+}
+
+/* FAQ */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.faq-card {
+  padding: 1.75rem;
+  border-radius: 18px;
+}
+
+.faq-q {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.faq-a {
+  opacity: 0.75;
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.5rem; }
+  .cta-group { flex-direction: column; width: 100%; }
+  .cta-btn { width: 100%; justify-content: center; }
+  .steps-container { flex-direction: column; }
+}

@@ -1,0 +1,79 @@
+.upload-box-container {
+  width: 100%;
+  max-width: 600px;
+  height: 340px;
+  margin: 1.75rem auto;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  border: 2px dashed var(--glass-border);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.upload-box-container:hover, .upload-box-container.drag-active {
+  border-color: var(--primary);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.upload-input {
+  display: none;
+}
+
+.upload-content {
+  pointer-events: none; /* Let clicks pass through for browse btn mostly, but handled manually */
+}
+
+/* Re-enable pointer events for browse button */
+.upload-content * {
+  pointer-events: auto;
+}
+
+.upload-icon {
+  font-size: 3.6rem;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+  transition: color 0.3s;
+}
+
+.upload-box-container:hover .upload-icon {
+  color: var(--primary);
+}
+
+.browse-btn {
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.file-hint {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+.drag-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: bold;
+  gap: 1rem;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.2s;
+}
+
+[data-theme="light"] .drag-overlay {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary);
+}
