@@ -2,18 +2,61 @@
   position: sticky;
   top: 1.6rem;
   margin: 0.8rem auto;
-  border-radius: 12px;
+  border-radius: 20px;
   z-index: 100;
   transition: all 0.3s ease;
-  max-width: none; 
-  width: calc(100% - 60px); 
+  max-width: none;
+  width: calc(100% - 60px);
+
+  /* iOS 26 Liquid Glass — radial gradient fades from edges inward */
+  background:
+    radial-gradient(ellipse at center,
+      rgba(120, 120, 130, 0.08) 0%,
+      rgba(100, 100, 110, 0.18) 60%,
+      rgba(80, 80, 90, 0.30) 100%
+    );
+
+  /* Blur + saturate amplify colors behind (light-bending illusion) */
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.04);
+
+  /* Outer glow + inset specular rim highlight on top edge */
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+
+  /* Gradient border — bright top rim fades to subtle bottom */
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  outline: 1px solid rgba(255, 255, 255, 0.10);
+  outline-offset: -1px;
+}
+
+/* Light theme variant — softer, cooler tinted glass */
+[data-theme="light"] .navbar {
+  background:
+    radial-gradient(ellipse at center,
+      rgba(255, 255, 255, 0.20) 0%,
+      rgba(210, 210, 220, 0.38) 60%,
+      rgba(180, 180, 195, 0.55) 100%
+    );
+  backdrop-filter: blur(24px) saturate(160%) brightness(1.08);
+  -webkit-backdrop-filter: blur(24px) saturate(160%) brightness(1.08);
+  box-shadow:
+    0 4px 28px rgba(0, 0, 0, 0.10),
+    0 1px 0 rgba(255, 255, 255, 0.90),
+    inset 0 1px 0 rgba(255, 255, 255, 0.80),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.04);
+  outline: 1px solid rgba(255, 255, 255, 0.50);
 }
 
 .navbar-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.9rem 1.5rem; /* Reduced to push content to edges */
+  padding: 0.9rem 1.5rem;
   width: 100%;
 }
 
@@ -35,7 +78,7 @@
 .logo-wrapper {
   display: flex;
   flex-direction: row;
-  align-items: center; /* Changed from baseline for perfect horizontal symmetry */
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -68,8 +111,8 @@
   gap: 0.5rem;
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
-  background: var(--surface);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--text-color);
   text-decoration: none;
   font-size: 0.85rem;
@@ -78,8 +121,17 @@
 }
 
 .nav-btn.github-btn:hover {
-  border-color: var(--primary);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+[data-theme="light"] .nav-btn.github-btn {
+  background: rgba(255, 255, 255, 0.40);
+  border: 1px solid rgba(255, 255, 255, 0.60);
+}
+
+[data-theme="light"] .nav-btn.github-btn:hover {
+  background: rgba(255, 255, 255, 0.65);
 }
 
 .nav-btn.github-btn .btn-label {
@@ -88,13 +140,13 @@
 }
 
 .icon-btn.snow-btn {
-  background: transparent;
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   font-size: 1rem;
   color: var(--text-color);
   cursor: pointer;
   padding: 0.4rem 0.8rem;
-  border-radius: 20px; /* Pill shape */
+  border-radius: 20px;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -111,20 +163,19 @@
 }
 
 .icon-btn.snow-btn:hover {
-  background: var(--surface);
-  border-color: var(--glass-border);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.20);
   opacity: 1;
 }
 
 .icon-btn.snow-btn.active {
-  color: #60a5fa; 
-  background: rgba(96, 165, 250, 0.1);
-  border-color: rgba(96, 165, 250, 0.3);
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.12);
+  border-color: rgba(96, 165, 250, 0.30);
   opacity: 1;
   text-shadow: 0 0 10px #60a5fa;
 }
 
-/* Only spin the icon */
 .icon-btn.snow-btn.active .snow-icon-spin {
   animation: spin 3s linear infinite;
 }
@@ -138,15 +189,15 @@
   .logo-subtitle {
     display: none;
   }
-  
+
   .nav-btn.github-btn .btn-label {
     display: none;
   }
-  
+
   .nav-btn.github-btn {
     padding: 0.5rem;
   }
-  
+
   .navbar {
     width: calc(100% - 20px);
     top: 0.8rem;

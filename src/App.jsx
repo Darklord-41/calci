@@ -3,7 +3,6 @@ import Layout from './components/common/Layout';
 import Home from './pages/Home';
 import ManualEntry from './pages/ManualEntry';
 import UploadFlow from './pages/UploadFlow';
-import './App.css';
 
 function App() {
   return (
