@@ -1,106 +1,121 @@
 import { Link } from 'react-router-dom';
 import { FaKeyboard, FaFileUpload, FaBolt, FaShieldAlt, FaMagic, FaCheckCircle, FaLayerGroup, FaQuestionCircle } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { Zap, Upload, ChevronRight, Calculator } from 'lucide-react';
+import SpotlightCards from '../components/common/SpotlightCards';
 import './Home.css';
 
 const Home = () => {
   return (
     <div className="home-container fade-in">
       {/* 1. Hero Section */}
-      <section className="hero-section container">
-        <div className="hero-content">
-          <h1 className="hero-title">Calculate Your SGPA <br /><span className="text-gradient">Instantly & Accurately</span></h1>
-          <p className="subtitle">
-            The most intelligent grade calculator. Upload your result screenshot and let our algorithm handle the rest, or verify manually with precision.
-          </p>
-        </div>
+      <section className="hero-section container" style={{ position: 'relative' }}>
+          {/* Background Decorative Element */}
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '100%', height: '100%', zIndex: -1, opacity: 0.2, pointerEvents: 'none' }}>
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(37,99,235,0.3), rgba(124,58,237,0.3))', filter: 'blur(120px)', borderRadius: '50%', transform: 'scale(0.75)' }} />
+          </div>
 
-        <div className="options-grid">
-          <Link to="/manual" className="option-card glass">
-            <div className="icon-wrapper">
-              <FaKeyboard />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="hero-content-new"
+          >
+            <div className="hero-badge">
+              <Zap size={12} />
+              The Intelligent Grade Calculator
             </div>
-            <h3>Manual Entry</h3>
-            <p>Enter your grades subject by subject manually to get the result.</p>
-            <span className="btn-text">Start Manual &rarr;</span>
-          </Link>
-          
-          <Link to="/upload" className="option-card glass active-card">
-            <div className="icon-wrapper">
-              <FaFileUpload />
-            </div>
-            <h3>Smart Upload</h3>
-            <p>Upload a screenshot of your results. We do the rest.</p>
-            <span className="btn-text">Upload Screenshot &rarr;</span>
-          </Link>
-        </div>
+            <h1 className="hero-title-new">
+              Smarter Result <br />
+              <span className="hero-title-gradient">Calculations.</span>
+            </h1>
+            <p className="hero-subtitle-new">
+              Eliminate manual errors. CALCI uses advanced OCR to parse your result sheets instantly, securely, and entirely in your browser.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="hero-actions-new"
+          >
+            <Link to="/upload" className="hero-btn-primary group">
+              <Upload size={22} strokeWidth={2.5} />
+              Smart Upload
+              <ChevronRight size={20} className="icon-slide" />
+            </Link>
+            <Link to="/manual" className="hero-btn-secondary">
+              <Calculator size={22} strokeWidth={2.5} />
+              Manual Entry
+            </Link>
+          </motion.div>
       </section>
 
       {/* 2. Feature Showcase (xAI Style Layout) */}
-      <section className="features-section">
-        <div className="features-container">
+      <section className="features-section-ls container">
+        <div className="features-container-ls">
           {/* Card 1 */}
-          <div className="xai-card">
-            <div className="card-content">
-              <h3>Smart OCR</h3>
-              <p>Don't type. Just snap. Our advanced Optical Character Recognition extracts your subjects and grades in seconds.</p>
+          <Link to="/upload" className="ls-card theme-red group">
+            <div className="ls-icon-wrapper">
+              <FaMagic size={24} />
             </div>
-            <div className="card-visual">
-              {/* Placeholder for visual - using icon for now */}
-              <FaMagic className="visual-icon" />
-            </div>
-            <div className="card-action">
-              <Link to="/upload" className="xai-btn">TRY OCR ↗</Link>
-            </div>
-          </div>
+            <h3>Smart OCR</h3>
+            <p>Don't type. Just snap. Our advanced Optical Character Recognition extracts your subjects and grades in seconds.</p>
+          </Link>
 
           {/* Card 2 */}
-          <div className="xai-card">
-            <div className="card-content">
-              <h3>Instant Analysis</h3>
-              <p>Get your SGPA calculated immediately with automated formula application. No manual math errors.</p>
+          <Link to="/manual" className="ls-card theme-green group">
+             <div className="ls-icon-wrapper">
+              <FaBolt size={24} />
             </div>
-             <div className="card-visual">
-              <FaBolt className="visual-icon" />
-            </div>
-            <div className="card-action">
-              <Link to="/manual" className="xai-btn">CALCULATE ↗</Link>
-            </div>
-          </div>
+            <h3>Instant Analysis</h3>
+            <p>Get your SGPA calculated immediately with automated formula application. No manual math errors.</p>
+          </Link>
 
           {/* Card 3 */}
-          <div className="xai-card">
-            <div className="card-content">
-              <h3>Privacy First</h3>
-              <p>Your data stays on your device. We use client-side processing, so your results are never uploaded to a cloud server.</p>
+          <div className="ls-card theme-blue group">
+             <div className="ls-icon-wrapper">
+              <FaShieldAlt size={24} />
             </div>
-             <div className="card-visual">
-              <FaShieldAlt className="visual-icon" />
-            </div>
-            <div className="card-action">
-              <span className="xai-btn static">SECURE ↗</span>
-            </div>
+            <h3>Privacy First</h3>
+            <p>Your data stays on your device. We use client-side processing, so your results are never uploaded to a cloud server.</p>
           </div>
         </div>
       </section>
 
-      {/* 3. How It Works (Step Flow) */}
-      <section className="how-section container">
+      {/* 3. How It Works (LocalSend Transfer Loop) */}
+      <section className="ls-how-section">
         <h2 className="section-title">How it Works</h2>
-        <div className="steps-container">
-          <div className="step-item">
-            <div className="step-number">01</div>
-            <h3>Upload Screenshot</h3>
-            <p>Take a clear screenshot of your semester result table.</p>
+        
+        <div className="ls-track-container">
+          <div className="ls-how-track"></div>
+          
+          <div className="ls-how-transfer">
+            <Zap size={14} strokeWidth={3} />
           </div>
-          <div className="step-item">
-            <div className="step-number">02</div>
-            <h3>Verify Data</h3>
-            <p>Review the extracted data side-by-side with your image.</p>
-          </div>
-          <div className="step-item">
-             <div className="step-number">03</div>
-             <h3>Get Result</h3>
-             <p>Your SGPA is calculated instantly. Celebrate your success!</p>
+
+          <div className="ls-how-nodes">
+            <div className="ls-how-node">
+              <div className="node-content">
+                <h3>1. Upload</h3>
+                <p>Take a clear screenshot of your semester result table.</p>
+              </div>
+            </div>
+            
+            <div className="ls-how-node">
+              <div className="node-content">
+                <h3>2. Verify</h3>
+                <p>Review the extracted data side-by-side with your image.</p>
+              </div>
+            </div>
+
+            <div className="ls-how-node">
+              <div className="node-content">
+                <h3>3. Result</h3>
+                <p>Your SGPA is calculated instantly. Celebrate your success!</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -112,29 +127,7 @@ const Home = () => {
           CALCI is designed for semester result tables. Upload a clear screenshot and we’ll extract the key fields you care about.
         </p>
 
-        <div className="explain-grid">
-          <div className="explain-card glass">
-            <div className="explain-icon"><FaLayerGroup /></div>
-            <h3>Subjects</h3>
-            <p>
-              We detect each row and capture the subject name/title when available. If the name is noisy, you can keep it blank and still calculate SGPA.
-            </p>
-          </div>
-          <div className="explain-card glass">
-            <div className="explain-icon"><FaBolt /></div>
-            <h3>Credits</h3>
-            <p>
-              Credits are parsed as numbers (like 4, 3, 1.5). This is what drives weighted calculation.
-            </p>
-          </div>
-          <div className="explain-card glass">
-            <div className="explain-icon"><FaCheckCircle /></div>
-            <h3>Grades (including A+)</h3>
-            <p>
-              Grades like A+, A, B+, B… are recognized and normalized (even if the screenshot spacing is weird).
-            </p>
-          </div>
-        </div>
+        <SpotlightCards />
       </section>
 
       {/* 5. FAQ */}
