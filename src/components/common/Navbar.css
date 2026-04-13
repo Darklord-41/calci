@@ -11,7 +11,6 @@
   /* Glass morphism base */
   display: flex;
   align-items: center;
-  text-white;
 
   /* Background with glass effect - refined from react-magic-ui */
   background: rgba(255, 255, 255, 0.10);
