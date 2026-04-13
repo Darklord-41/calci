@@ -1,0 +1,87 @@
+@keyframes shiny-text-animation {
+  0% {
+    background-position: -1000% center;
+  }
+  100% {
+    background-position: 1000% center;
+  }
+}
+
+@keyframes shiny-text-animation-rtl {
+  0% {
+    background-position: 1000% center;
+  }
+  100% {
+    background-position: -1000% center;
+  }
+}
+
+@keyframes shiny-text-yoyo {
+  0% {
+    background-position: -1000% center;
+  }
+  50% {
+    background-position: 1000% center;
+  }
+  100% {
+    background-position: -1000% center;
+  }
+}
+
+@keyframes shiny-text-yoyo-rtl {
+  0% {
+    background-position: 1000% center;
+  }
+  50% {
+    background-position: -1000% center;
+  }
+  100% {
+    background-position: 1000% center;
+  }
+}
+
+.shiny-text {
+  --speed: 2s;
+  --delay: 0s;
+  --spread: 120deg;
+  --shine-color: #ffffff;
+  --text-color: #b5b5b5;
+
+  background: linear-gradient(
+    var(--spread),
+    var(--text-color) 0%,
+    var(--text-color) 20%,
+    var(--shine-color) 50%,
+    var(--text-color) 80%,
+    var(--text-color) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: shiny-text-animation var(--speed) linear infinite var(--delay);
+}
+
+.shiny-text.yoyo {
+  animation: shiny-text-yoyo var(--speed) linear infinite var(--delay);
+}
+
+.shiny-text.rtl {
+  animation: shiny-text-animation-rtl var(--speed) linear infinite var(--delay);
+}
+
+.shiny-text.rtl.yoyo {
+  animation: shiny-text-yoyo-rtl var(--speed) linear infinite var(--delay);
+}
+
+.shiny-text.pause-hover:hover {
+  animation-play-state: paused;
+}
+
+.shiny-text.disabled {
+  background: none;
+  -webkit-text-fill-color: var(--text-color);
+  color: var(--text-color);
+  animation: none;
+}

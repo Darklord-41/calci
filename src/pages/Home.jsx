@@ -3,6 +3,7 @@ import { FaKeyboard, FaFileUpload, FaBolt, FaShieldAlt, FaMagic, FaCheckCircle, 
 import { motion } from 'framer-motion';
 import { Zap, Upload, ChevronRight, Calculator } from 'lucide-react';
 import SpotlightCards from '../components/common/SpotlightCards';
+import ShinyText from '../components/common/ShinyText';
 import './Home.css';
 
 const Home = () => {
@@ -27,7 +28,14 @@ const Home = () => {
             </div>
             <h1 className="hero-title-new">
               Smarter Result <br />
-              <span className="hero-title-gradient">Calculations.</span>
+              <ShinyText 
+                text="Calculations."
+                shineColor="#60a5fa"
+                color="#b5b5b5"
+                speed={3}
+                spread={120}
+                className="hero-title-gradient"
+              />
             </h1>
             <p className="hero-subtitle-new">
               Eliminate manual errors. CALCI uses advanced OCR to parse your result sheets instantly, securely, and entirely in your browser.
