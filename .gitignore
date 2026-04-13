@@ -1,6 +1,5 @@
 # Internal / dev-only folders
 misc/
-res/
 
 # Dependencies
 node_modules/

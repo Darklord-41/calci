@@ -1,0 +1,13 @@
+x card - https://kokonutui.com/docs/cards/tweet-card
+
+bento grid - https://kokonutui.com/docs/cards/bento-grid
+
+spotlight cards - https://kokonutui.com/docs/cards/spotlight-cards
+
+navbar designs - https://kokonutui.com/docs/navigation/toolbar
+
+file uploading - https://kokonutui.com/docs/inputs/file-upload
+
+loading animation - https://kokonutui.com/docs/inputs/loader
+
+text animations - https://www.reactbits.dev/text-animations/rotating-text

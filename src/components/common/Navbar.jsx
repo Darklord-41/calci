@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav className="navbar glass">
       <div className="navbar-content">
         <Link to="/" className="logo-link" aria-label="CALCI Home">
-          <img src="./calci.svg" alt="Calci Logo" className="nav-logo-icon" />
+          <img src="/calci.svg" alt="Calci Logo" className="nav-logo-icon" />
           <div className="logo-wrapper">
             <span className="logo-text" data-text="CALCI"><span className="logo-accent">C</span>ALCI</span>
             <span className="logo-subtitle">- Grade Calculator</span>
@@ -29,10 +29,10 @@ const Navbar = () => {
             <span className="snow-label">Let it snow</span>
           </button>
           <ThemeToggle />
-          <a 
-            href="https://github.com/anshdhariwal/calci" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href="https://github.com/anshdhariwal/calci"
+            target="_blank"
+            rel="noopener noreferrer"
             className="nav-btn github-btn"
           >
             <FaGithub />
